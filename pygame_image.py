@@ -15,6 +15,7 @@ def main():
     k_img = pg.transform.flip(k_img, True, False)
     k_rct = k_img.get_rect()
     k_rct.center = 300, 200
+    move = 0
     tmr = 0
     x = 0 #練習5
     while True:
@@ -27,15 +28,22 @@ def main():
         screen.blit(bg_img, [-x+3200, 0])
         screen.blit(k_img, k_rct)
         key_lst = pg.key.get_pressed()
-        k_rct.move_ip((-1, 0))
+        # k_rct.move_ip((-1, 0))
+        move = -1, 0
         if key_lst[pg.K_UP]:
-            k_rct.move_ip((0, -1))
+            # k_rct.move_ip((0, -1))
+            move = 0, -1
         elif key_lst[pg.K_DOWN]:
-            k_rct.move_ip((0, 1))
+            # k_rct.move_ip((0, 1))
+            move = 0, 1
         elif key_lst[pg.K_LEFT]:
-            k_rct.move_ip((-1, 0))
+            # k_rct.move_ip((-1, 0))
+            move = -2, 0
         elif key_lst[pg.K_RIGHT]:
-            k_rct.move_ip((2, 0))
+            # k_rct.move_ip((2, 0))
+            move = 1, 0
+
+        k_rct.move_ip((move))
         
 
         pg.display.update()
