@@ -13,15 +13,17 @@ def main():
     k_img = pg.image.load("fig/3.png")
     k_img = pg.transform.flip(k_img, True, False)
     tmr = 0
+    x = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-
-        screen.blit(bg_img, [0, 0]) #練習2
+        
+        x += 5
+        screen.blit(bg_img, [-x, 0]) #練習2
         screen.blit(k_img, [300, 200])
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200) #FPSはこれ
 
 
 if __name__ == "__main__":
