@@ -27,6 +27,7 @@ def main():
         screen.blit(bg_img, [-x+3200, 0])
         screen.blit(k_img, k_rct)
         key_lst = pg.key.get_pressed()
+        k_rct.move_ip((-1, 0))
         if key_lst[pg.K_UP]:
             k_rct.move_ip((0, -1))
         elif key_lst[pg.K_DOWN]:
@@ -34,7 +35,9 @@ def main():
         elif key_lst[pg.K_LEFT]:
             k_rct.move_ip((-1, 0))
         elif key_lst[pg.K_RIGHT]:
-            k_rct.move_ip((1, 0))
+            k_rct.move_ip((2, 0))
+        
+
         pg.display.update()
         tmr += 1        
         clock.tick(200) #FPSはこれ
